@@ -3,3 +3,123 @@ http://testdrivendevelopment.ourownjava.com/spring-test/unit-testing-spring-mvc-
 https://www.petrikainulainen.net/programming/spring-framework/spring-data-jpa-tutorial-integration-testing/
 http://docs.spring.io/spring-data/data-jpa/docs/1.1.x/reference/html/#jpa.named-parameters
 http://source.lishman.com/project/689#card/3328/file/19201
+/**************************************************************************/
+let userName:string = "Hemant"
+console.log("My name is: " +userName)
+
+function add(x:number,y:number):number{
+     return x + y;
+}
+let result = add(2,3)
+console.log("Addition is : " + result);
+enum languagesKnown {English,Marathi,Hindi}
+
+let users = [
+    {name:"Hemant",city:"Mumbai",Language:languagesKnown[languagesKnown.Marathi]},
+    {name:"Sachin",city:"Mumbai",Language:languagesKnown[languagesKnown.Hindi]}
+]
+
+let user = {
+    name:"Rahul",
+    city:"Pune",
+    Language:languagesKnown[languagesKnown.Hindi]
+}
+users.push(user);
+
+/*for (var index = 0; index < users.length; index++) {
+    var element = users[index];
+    console.log(element);
+} */ 
+
+function getUsers(users :any[]){
+    users.forEach(element => {
+     console.log(" Name: " + element.name 
+         + " City: " + element.city
+         + " Language: " 
+         + element.Language)
+    });
+} 
+
+getUsers(users);
+
+/*************************************/
+function getNumbers(...nums:number[]){
+    nums.forEach(element => {
+        console.log("Number: " + element)
+    });
+}
+
+getNumbers(1,2,3,4,5);
+
+/****************ANonymous function************************/
+let getUserName = function (fname :String,lname:string){
+    return "Then" + " " + fname + " " + lname;
+}
+
+console.log(getUserName("x","y"));
+
+//Arrow Function (lambda)
+let userFname = (fanme:string,lname:string)=>
+             {return fanme + " " + lname };
+
+console.log(userFname("a","b"));             
+/**========================================================== */
+
+interface userInfo {
+    fname:string,
+    lname:string
+}
+
+let usr:userInfo = {
+   fname:"Hnm",
+   lname:"oak"  
+} 
+
+let users1:userInfo[] = [
+    {fname:"Hemant",lname:"df"},
+    {fname:"Sachin",lname:"sds"}
+]
+
+function getUserList(userlist:userInfo[]){
+    userlist.forEach(element => {
+         console.log(element);
+    });
+}
+
+getUserList(users1);
+
+/****Classes */
+
+class Users{
+    private fname:string;
+    private lname:string;
+
+    constructor(fname:string,lname:string){
+        this.fname = fname;
+        this.lname = lname
+    }
+  
+    getFullName():string {
+        return this.fname +  " " + this.lname;
+    }
+
+}
+
+let u = new Users("Hemant","UK");
+console.log(u.getFullName());
+
+
+/****************Generics***************/
+let userListG:Array<userInfo> = [
+        {fname:"Hemant",lname:"df"},
+        {fname:"Sachin",lname:"sds"}
+]
+
+function getUserListG(userdata:Array<userInfo>){
+     userdata.forEach(element => {
+          console.log("Fname: " + element.fname
+                + " "  + " Lname: " + element.lname)
+     });   
+}    
+
+getUserListG(userListG);
